@@ -1,0 +1,55 @@
+[
+    {
+        "description": "Modify the given formula to as shown below to the best of your ability.",
+        "render": "f1.png",
+        "Word": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f1.docx",
+        "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f1.zip",
+        "FFL": {
+            "md": "$$ y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\cdots + \\beta_N x_N $$",
+            "ffl": "",
+            "ratio": [
+                1,
+                3
+            ]
+        }
+    },
+    {
+        "description": "Modify the given formula to as shown below to the best of your ability.",
+        "render": "f2.png",
+        "Word": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f2.docx",
+        "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f2.zip",
+        "FFL": {
+            "md": "",
+            "ffl": "",
+            "ratio": [
+                1,
+                3
+            ]
+        }
+    },
+    {
+        "description": "Recreate the formula to the best of your ability",
+        "render": "f3.png",
+        "Word": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f3.docx",
+        "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f3.zip",
+        "FFL": {
+            "md": "",
+            "ffl": "",
+            "ratio": [
+                3,
+                3
+            ]
+        }
+    },
+    {
+        "description": "Enhance the given document with visual augmentations with the tools we have provided.",
+        "FFL": {
+            "md": "Ohm's law states that the current through a conductor between two points is directly proportional to the voltage across the two points. Introducing the constant of proportionality, the resistance, one arrives at the usual mathematical equation that describes this relationship:\n$$ I = \\frac{V}{R} $$\nwhere I is the current through the conductor, $V$ is the voltage measured across the conductor and $R$ is the resistance of the conductor. More specifically, Ohm's law states that the $R$ in this relation is constant, independent of the current\n\n\nIn physics, the term Ohm's law is also used to refer to various generalizations of the law; for example the vector form of the law used in electromagnetics and material science:\n$$ \\vec{J} = \\sigma\\vec{E} $$\nwhere J is the current density at a given location in a resistive material, E is the electric field at that location, and σ (sigma) is a material-dependent parameter called the conductivity.\n\n\nTo illustrate the connection in the case of a wire, the resistance of a wire can be given by the formula \n$$ R = \\frac{\\rho L}{A} $$\nwhere $\\rho$ is the resistivity of the material, L is the length of the wire, A is the cross-section area of the wire.\nConductivity is the reciprocal of resistivity or,\n$$ \\rho = \\frac{1}{\\sigma} $$\nSubstituted in the formula of resistance, we get\n$$ R = \\frac{L}{\\sigma A} $$\nSubstitute this value of resistance in Ohm’s law, we then get\n$$ V = \\frac{IL}{\\sigma A} $$\ni.e.\n$$ \\sigma\\frac{V}{L} = \\frac{I}{A} $$\n\n\nWe know the potential gradient,\n$$ \\vec{E} = \\frac{\\vec{V}}{L} $$\nand current density\n$$ \\vec{J} = \\frac{\\vec{I}}{A} $$\nThus substituting the vector values, the ohm’s law can be rewritten as\n$$ \\vec{J} = \\sigma\\vec{E} $$\n",
+            "ffl": "",
+            "ratio": [
+                3,
+                2
+            ]
+        }
+    }
+]

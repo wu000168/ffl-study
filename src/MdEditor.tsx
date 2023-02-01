@@ -1,41 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import 'github-markdown-css/github-markdown.css';
-import { Card, Container, Stack } from '@mui/material';
+import { Card, Stack } from '@mui/material';
 import MarkdownIt from 'markdown-it';
-import * as ffl from 'ffl';
+import * as fflParser from 'ffl';
 import { GrammarError } from 'peggy';
 import { Typography } from '@mui/joy';
 declare function require(path: string): any;
 var fflPlugin = require('markdown-it-ffl');
 
-function MdEditor() {
-    const [mdSrc, setMdSrc] = useState(`###### Haneen Mohammed, Ziyun Wei, Eugene Wu, and Ravi Netravali. 2020. Continuous prefetch for interactive data applications. Proc. VLDB Endow. 13, 12 (August 2020), 2297–2311. https://doi.org/10.14778/3407790.3407826
-
-**Predictor decomposition.** Applications specify the predictor $P^t$ as <span class="server">server</span> and <span class="client">client</span> components:
-$$ P^t(q|\\Delta, e_t) = P^t_s(q|\\Delta, s_t) P^t_c(st|\\Delta, e_t) $$
-The client component <span class="client">$P^t_c$</span> collects user interaction events and requests $e_t$ and translates this information into a byte
-array that represents the predictor state $s_t$. $s_t$ may be the most recent request(s), model parameters, the most recent
-user events, or simply the predicted probabilities themselves. The server uses $s_t$ as input to <span class="server">$P^t_s$</span> in order to return future
-request probabilities for the Khameleon scheduler’s joint optimization between prefetching and response tuning.
-`);
-    const [fflSrc, setFflSrc] = useState(``);
-    const [vecMode, setVecMode] = useState('arrow');
-    var md = MarkdownIt({
+function MdEditor({ md, ffl, ratio, task, target, onChange }: any) {
+    ratio ??= [4, 3];
+    const [mdSrc, setMdSrc] = useState(md ?? "");
+    const [fflSrc, setFflSrc] = useState(ffl ?? "");
+    useEffect(() => { if (onChange) onChange(mdSrc, fflSrc) }, [mdSrc, fflSrc, onChange]);
+    var mdIt = MarkdownIt({
         html: true,
         linkify: true,
         typographer: true
-    }).use(fflPlugin, {
-        globalStyle: fflSrc,
-        macros: {
-            '\\vec': vecMode === 'bold' ? '\\boldsymbol{#1}' : undefined
-        }
-    });
+    }).use(fflPlugin, { globalStyle: fflSrc });
     var errMsg: string | undefined, render = React.useRef('');
     try {
-        ffl.default.parseFFL(fflSrc);
+        fflParser.default.parseFFL(fflSrc);
         errMsg = undefined;
-        render.current = md.render(mdSrc);
+        render.current = mdIt.render(mdSrc);
     } catch (err) {
         let gErr = err as GrammarError;
         errMsg = `${gErr.location?.start.line}:${gErr.location?.start.column}:${gErr.message}`;
@@ -46,23 +34,29 @@ request probabilities for the Khameleon scheduler’s joint optimization between
             alignItems='stretch' justifyContent='space-around'
             sx={{ height: '100%', width: '100%' }}>
             <Stack spacing={2} sx={{ flex: 1 }}>
-                <div style={{ textAlign: 'start', marginBottom: '-8pt' }}>Markdown</div>
+                <div style={{ textAlign: 'start', marginBottom: '-8pt' }}>Markdown w/ LaTeX Math</div>
                 <textarea
-                    style={{ flex: 4, resize: 'none', overflow: 'auto' }}
+                    style={{ flex: ratio[0] ?? 4, resize: 'none', overflow: 'auto' }}
                     value={mdSrc} onChange={(e) => setMdSrc(e.target.value)}
                 />
-                <div style={{ textAlign: 'start', marginTop: '8pt', marginBottom: '-8pt' }}>FFL</div>
+                <div style={{ textAlign: 'start', marginTop: '8pt', marginBottom: '-8pt' }}>Style Specification</div>
                 <textarea
-                    style={{ flex: 3, resize: 'none', overflow: 'auto' }}
+                    style={{ flex: ratio[1] ?? 3, resize: 'none', overflow: 'auto' }}
                     value={fflSrc} onChange={(e) => setFflSrc(e.target.value)}
                 />
                 {errMsg &&
                     <Typography textColor="danger" sx={{ marginTop: '-4pt' }}>{errMsg}</Typography>}
             </Stack>
-            <Card sx={{ flex: 1, textAlign: 'start', overflow: 'auto', padding: '16pt' }}
-                variant='outlined' className='markdown-body'>
-                <div dangerouslySetInnerHTML={{ __html: render.current }} />
-            </Card>
+            <Stack spacing={2} sx={{ flex: 1, height: "100%", display: 'flex', flexDirection: "column" }}>
+                <div style={{ textAlign: 'start', marginBottom: '-8pt', flex: 0 }}>Task</div>
+                {target && <img alt={target} src={target} width="100%"></img>}
+                <Typography>{task ?? "Recreate the formula to as shown above to the best of your ability using the inputs on the left."}</Typography>
+                <div style={{ textAlign: 'start', marginBottom: '-8pt', flex: 0 }}>Preview</div>
+                <Card sx={{ textAlign: 'start', overflow: 'auto', padding: '16pt', flex: 1 }}
+                    variant='outlined' className='markdown-body'>
+                    <div dangerouslySetInnerHTML={{ __html: render.current }} />
+                </Card>
+            </Stack>
         </Stack>
     );
 }

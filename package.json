@@ -1,11 +1,12 @@
 {
-  "name": "md-playground",
+  "name": "ffl-study",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://wu000168.github.io/ffl-playground-site/",
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.11.0",
     "@mui/joy": "^5.0.0-alpha.49",
     "@mui/material": "^5.10.9",
     "@testing-library/jest-dom": "^5.16.5",
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/wu000168/ffl-study.git -b main",
+    "deploy": "gh-pages -d build -r https://github.com/wu000168/ffl-study.git -b site",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
