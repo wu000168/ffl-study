@@ -17,10 +17,6 @@ You can use the **Large Operator** tool to create summations.
 
 You can use the **Accent** tool to add signs or symbols such as an arrow above a term.
 
-## Underline some specific text
-1. Select the target text
-2. Go to **Home** and choose **Underline**
-
 ## Changing the color of a part of the formula
 1. Select the part you want to change the color
 2. go to **Home** tab and choose **Font Color**
