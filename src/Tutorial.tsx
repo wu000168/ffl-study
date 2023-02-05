@@ -1,7 +1,7 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import React from "react";
 import { download } from "./App";
-import MdEditor from "./MdEditor";
+import FFLTask from "./FFLTask";
 
 function Tutorial() {
     const [value] = React.useState(0);
@@ -25,7 +25,7 @@ function Tutorial() {
             </Tabs>
         </Box>
         <Box sx={{ flex: 1, marginTop: '8pt' }}>
-            <MdEditor task="This is where your task will be displayed." />
+            <FFLTask task="This is where your task will be displayed." />
         </Box>
     </Box>
 }

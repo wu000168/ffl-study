@@ -21,7 +21,7 @@
     "github-markdown-css": "^5.1.0",
     "html-react-parser": "^3.0.4",
     "markdown-it": "^13.0.1",
-    "markdown-it-ffl": "github:wu000168/markdown-it-ffl",
+    "markdown-it-ffl": "../markdown-it-ffl",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",

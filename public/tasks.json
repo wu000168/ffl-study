@@ -1,7 +1,10 @@
 [
     {
         "description": "Modify the given formula to as shown below to the best of your ability.",
-        "render": "f1.png",
+        "render": {
+            "md":"$$ y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\cdots + \\beta_N x_N $$",
+            "ffl" :"$y$ { color: red }\n$\\beta_?$ { color : purple }\n$x_?$ { color : blue }\n$\\beta_0$ { color : green }"
+        },
         "Word": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f1.docx",
         "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f1.zip",
         "FFL": {
@@ -15,7 +18,10 @@
     },
     {
         "description": "Modify the given formula to as shown below to the best of your ability.",
-        "render": "f2.png",
+        "render": {
+            "md":"$$\\rho\\cdot\\frac{D\\vec{v}}{Dt}=\\rho\\cdot(\frac{\\partial\\vec{v}}{\\partial t}+(\\vec{v}\\cdot\\nabla)\\vec{v})$$",
+            "ffl" :"$\\rho\\cdot\\frac{D\\vec{v}}{Dt}$ { color: green; label: S; label-marker: extent }\n$\\frac{\\partial\\vec{v}}{\\partial t}$ { color: red; label: L; label-marker: extent }\n$(\\vec{v}\\cdot\\nabla)\\vec{v}$ { color: purple; label: C; label-marker: extent }\n$\\vec{v}$ { color: gray }"
+        },
         "Word": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f2.docx",
         "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f2.zip",
         "FFL": {
@@ -29,7 +35,10 @@
     },
     {
         "description": "Recreate the formula to the best of your ability",
-        "render": "f3.png",
+        "render":  {
+            "md":"$${{\\rho}}\\cdot {{(\\frac{\\partial\\vec{v}}{\\partial t}+(\\vec{v}\\cdot\\nabla)\\vec{v})}} = {{{{\\rho\\vec{g}}}-\\nabla p+\\mu\\cdot\\nabla^2\\vec{v}}}$$",
+            "ffl" :".group:nth(1) {\nlabel: mass;\nlabel-position: above;\nlabel-marker: extent;\ncolor: blue\n}\n.group:nth(2) {\nlabel: acceleration;\nlabel-position: above;\nlabel-marker: extent;\ncolor: red\n}\n.group:nth(3) {\nlabel: force;\nlabel-position: above;\nlabel-marker: extent;\n}\n\n.group:nth(4) { color: orange }\n\n$\\nabla p$ { color: purple }\n$\\mu\\cdot\\nabla^2\\vec{v}$ { color: lime }\n\n*.ffl-label { transform: scale(0.84) }"
+        },
         "Word": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f3.docx",
         "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f3.zip",
         "FFL": {
