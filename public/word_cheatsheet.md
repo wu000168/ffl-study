@@ -1,22 +1,5 @@
 # Microsoft Word Cheatsheet
 
-## Insert an equation
-1. Select **Insert** > **Equation**
-2. Input the formula you want in the box given. 
-
-
-## Some useful tools
-You can make use of the tools given in the top bar, such as Fraction, Script, and Bracket, to help you create the terms and equations you want. 
-You can input symbols and signs, such as $\alpha$, $\pi$, $\nabla$, and $\cdot$ using the toolbar.
-
-You can use the **Script** tool to create subscripts and superscripts.
-
-You can use the **Fraction** tool to create fractions and also derivatives.
-
-You can use the **Large Operator** tool to create summations.
-
-You can use the **Accent** tool to add signs or symbols such as an arrow above a term.
-
 ## Changing the color of a part of the formula
 1. Select the part you want to change the color
 2. go to **Home** tab and choose **Font Color**
