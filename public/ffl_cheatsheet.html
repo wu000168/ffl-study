@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cheatsheet Z</title>
+        <title>Cheatsheet X</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -1345,7 +1345,8 @@ body,
 }
 
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -1373,21 +1374,72 @@ body,
             <div class="github-markdown-content"><span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <h1 id="cheatsheet-z">Cheatsheet Z</h1>
-<h2 id="changing-the-color-of-a-part-of-the-formula">Changing the color of a part of the formula</h2>
-<ol>
-<li>Select the part you want to change the color</li>
-<li>go to <strong>Home</strong> tab and choose <strong>Font Color</strong></li>
-</ol>
-<h2 id="label-a-part-of-the-formula">Label a part of the formula</h2>
-<ol>
-<li>Check if you are in the normal text editing mode rather than the equation editing mode. If not, click the space outside the equation box to go back to the normal text editing mode.</li>
-<li>Select <strong>Insert</strong> &gt; <strong>Shapes</strong>. You can use the Line and Brace in it to point out the term(s). You can always rotate or change the size of the lines and braces you are using.</li>
-<li>Click the place you want to add labels and input the text of the labels.</li>
-</ol>
+                <h1 id="cheatsheet-x">Cheatsheet X</h1>
+<h2 id="general-syntax">General Syntax</h2>
+<p><em><span style="font-variant:small-caps;">selectors...</span></em> <code>{</code><br>
+  <em><span style="font-variant:small-caps;">attribute-key</span></em><code>:</code> <em><span style="font-variant:small-caps;">value</span></em><code>;</code><br>
+  <em><span style="font-variant:small-caps;">attribute-key</span></em><code>:</code> <em><span style="font-variant:small-caps;">value</span></em><code>;</code><br>
+  <em>...</em><br>
+<code>}</code><br>
+Generally, you style your math expressions by selecting a portion of it and apply styles with a block of attributes.</p>
+<h3 id="selectors">Selectors</h3>
+<h4 id="literal-selectors----latex-">Literal Selectors - <code>$</code> <em><span style="font-variant:small-caps;"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8988em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6833em;"><span style="top:-2.905em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4678em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span></span></em> <code>$</code></h4>
+<p>You can select any well-formed segment of your LaTeX math by enclosing them in a pair of <code>$</code>'s.</p>
+<p>You can use wildcards in your literal selectors. To match any <em>single token/group</em>, use <code>?</code>. For a <em>sequence of any length</em>, use <code>*</code>. Note that wildcards are bounded by <code>{</code>...<code>}</code> groups and <code>*</code> selects the longest possible match.</p>
+<p>To match the literal character of the wildcards use <code>\?</code> for &quot;?&quot; or <code>\*</code> for &quot;*&quot;.</p>
+<h4 id="selector-combinators">Selector Combinators</h4>
+<p>You can combine selectors with some simple logical operations.</p>
+<h5 id="union---">Union - <code>,</code></h5>
+<p><em><span style="font-variant:small-caps;">selector</span></em><code>,</code><em><span style="font-variant:small-caps;">selector</span></em></p>
+<p>For example, <code>$x$, $y$</code> would select any <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and any <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>. It is the same as writing the same style block for both selectors.</p>
+<h3 id="attributes">Attributes</h3>
+<p>To apply styles to the selected elements you use the following attributes in the styling block (the part enclosed in <code>{</code>...<code>}</code>),</p>
+<table>
+<thead>
+<tr>
+<th><em><span style="font-variant:small-caps;">attribute-key</span></em></th>
+<th><em><span style="font-variant:small-caps;">value</span></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color</code></td>
+<td><code>red</code>/<code>blue</code>/<code>green</code>/<code>orange</code>/<code>purple</code>/<code>violet</code>/<code>magenta</code>/<code>gray</code>/...</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>any <em><span style="font-variant:small-caps;">string</span></em> terminated by the attribute-dividing <code>;</code></td>
+</tr>
+<tr>
+<td><code>label-position</code></td>
+<td><code>above</code>/<code>below</code>/<code>auto</code></td>
+</tr>
+<tr>
+<td><code>label-marker</code></td>
+<td><code>extend</code>/<code>line</code>/<code>none</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<table>
+<thead>
+<tr>
+<th>FFL</th>
+<th>LaTeX</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$x$ { color: blue; }</code><br><code>$m_\?$ { color: red; }</code><br><code>.subscript { color: green }</code></td>
+<td><code>$f(x)=\frac{x}{m_0}+b$</code></td>
+<td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.6136em; vertical-align: -0.6036em;"></span><span class="mord ffl-5e95f8f6-b247-440d-bf55-81e8f95a6940 visible"><span class="mord visible"><span class="mord mathnormal visible" style="margin-right: 0.1076em;">f</span><span class="mopen visible">(</span><span class="mord mathnormal fflMatch0-x visible">x</span><span class="mclose visible">)</span><span class="mspace visible" style="margin-right: 0.2778em;"></span><span class="mrel visible">=</span><span class="mspace visible" style="margin-right: 0.2778em;"></span><span class="mord visible"><span class="mopen nulldelimiter visible"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist visible" style="height: 1.01em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight visible"><span class="mord mtight denominator fflMatch1-m___ visible"><span class="mord mathnormal mtight denominator fflMatch1-m___ visible">m</span><span class="msupsub denominator fflMatch1-m___"><span class="vlist-t vlist-t2 denominator fflMatch1-m___"><span class="vlist-r denominator fflMatch1-m___"><span class="vlist denominator fflMatch1-m___ visible" style="height: 0.3448em;"><span class="denominator fflMatch1-m___" style="top: -2.3448em; margin-left: 0em; margin-right: 0.0714em;"><span class="pstrut denominator fflMatch1-m___" style="height: 2.5357em;"></span><span class="sizing reset-size3 size1 mtight denominator fflMatch1-m___"><span class="mord mtight denominator fflMatch1-m___ visible"><span class="mord mtight denominator fflMatch1-m___ subscript visible">0</span></span></span></span></span><span class="vlist-s denominator fflMatch1-m___"><span class="denominator fflMatch1-m___">​</span></span></span><span class="vlist-r denominator fflMatch1-m___"><span class="vlist denominator fflMatch1-m___ visible" style="height: 0.3695em;"><span class="denominator fflMatch1-m___"></span></span></span></span></span></span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.485em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight visible"><span class="mord mathnormal mtight numerator fflMatch0-x visible">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist visible" style="height: 0.6036em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter visible"></span></span><span class="mspace visible" style="margin-right: 0.2222em;"></span><span class="mbin visible">+</span><span class="mspace visible" style="margin-right: 0.2222em;"></span><span class="mord mathnormal visible">b</span></span></span></span></span><style>.ffl-5e95f8f6-b247-440d-bf55-81e8f95a6940 .fflMatch0-x.visible { color: blue; } .ffl-5e95f8f6-b247-440d-bf55-81e8f95a6940 .fflMatch1-m___.visible { color: red; } .ffl-5e95f8f6-b247-440d-bf55-81e8f95a6940 .subscript.visible { color: green; }</style></span></td>
+</tr>
+</tbody>
+</table>
 </div>
         </div>
-        
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */
 /*! For license information please see index.bundle.js.LICENSE.txt */

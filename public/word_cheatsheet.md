@@ -1,4 +1,4 @@
-# Microsoft Word Cheatsheet
+# Cheatsheet Z
 
 ## Changing the color of a part of the formula
 1. Select the part you want to change the color
