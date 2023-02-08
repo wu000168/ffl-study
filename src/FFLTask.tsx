@@ -55,7 +55,8 @@ function FFLTask({ md, ffl, ratio, task, target, onChange }: any) {
                     <Card variant='outlined' className='markdown-body' >
                         <CardContent sx={{ textAlign: 'start', flex: 0, minHeight: 'fit-content', overflow: 'auto' }}>
                             {task ?? "Recreate the formula to as shown above to the best of your ability using the inputs on the left."}
-                            {target ? <div style={{ marginBottom: '-16pt' }}>
+                            <br />
+                            {target ? <div style={{ marginBottom: '-16pt', marginTop: '8pt' }}>
                                 <span dangerouslySetInnerHTML={{ __html: taskRender.render(target?.md ?? "") }} />
                             </div> : []}
                         </CardContent>

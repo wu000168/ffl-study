@@ -19,9 +19,9 @@ function Tutorial() {
     return <Box sx={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider', flex: 0 }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                <Tab label="Tool A" />
-                <Tab label="Tool B" />
-                <Tab label="Tool C" />
+                <Tab label="Tool X" />
+                <Tab label="Tool Y" />
+                <Tab label="Tool Z" />
             </Tabs>
         </Box>
         <Box sx={{ flex: 1, marginTop: '8pt' }}>

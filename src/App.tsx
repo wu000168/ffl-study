@@ -182,7 +182,7 @@ function App() {
   }
   const getReport = () =>
     "Participant ID,Task 1, Task 2, Task 3, Task 4,Total Time,FFL Task Markdown,FFL Task Styling,Open Task Markdown,Open Task Styling\n" +
-    `${participantID},${taskTimes.current.map(s => s.toString()).join(',')},${studyEnd.current - studyStart.current},"${fflTaskMd.current.replaceAll('"', '\\"')}","${fflTaskStyle.current.replaceAll('"', '\\"')}","${openTaskMd.current.replaceAll('"', '\\"')}","${openTaskStyle.current.replaceAll('"', '\\"')}"`
+    `${participantID},${taskTimes.current.map(s => s.toString()).join(',')},${studyEnd.current - studyStart.current}," ${fflTaskMd.current.replaceAll('"', '\\"')} "," ${fflTaskStyle.current.replaceAll('"', '\\"')} "," ${openTaskMd.current.replaceAll('"', '\\"')} "," ${openTaskStyle.current.replaceAll('"', '\\"')} "`
   return (
     <div className="App">
       <Container maxWidth='lg' sx={{ height: '100vh' }}>
