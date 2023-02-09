@@ -29,7 +29,7 @@ To apply styles to the selected elements you use the following attributes in the
 | `color` | `red`/`blue`/`green`/`orange`/`purple`/`violet`/`magenta`/`gray`/... |
 | `label` | any _<span style="font-variant:small-caps;">string</span>_ terminated by the attribute-dividing `;` |
 | `label-position` | `above`/`below`/`auto` |
-| `label-marker` | `extend`/`line`/`none` |
+| `label-marker` | `extent`/`line`/`none` |
 
 ## Example
 | FFL | LaTeX | Output |

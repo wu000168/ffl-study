@@ -6,7 +6,7 @@ where <sc style="font-variant: small-caps;">color</sc> can be `red`/`blue`/`gree
 For example, `$\textcolor{red}{r}$` gives $\textcolor{red}{r}$.  
 
 ## Over-/Under-brace
-`\overbrace{`...`}^{`<span style="font-variant: small-caps;">brace-label</sc>`}`  
-`\underbrace{`...`}_{`<span style="font-variant: small-caps;">brace-label</sc>`}`
+`\overbrace{`...`}^{`<sc style="font-variant: small-caps;">brace-label</sc>`}`  
+`\underbrace{`...`}_{`<sc style="font-variant: small-caps;">brace-label</sc>`}`
 
-For example, `$\overbrace{o}^{over}$` gives $\overbrace{o}^{over}$ or `$\underbrace{u}^{under}$` gives $\overbrace{u}^{under}$
+For example, `$\overbrace{o}^{over}$` gives $\overbrace{o}^{over}$ or `$\underbrace{u}^{under}$` gives $\underbrace{u}_{under}$
