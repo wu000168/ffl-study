@@ -115,16 +115,24 @@ function App() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [activeStepCompleted, setActiveStepCompleted] = React.useState(false);
   let taskIds = validateParticipantId(participantID ?? 'PILOT') ?? [];
-  const fflTaskMd = React.useRef("");
-  const fflTaskStyle = React.useRef("");
+  const fflTask1Md = React.useRef("");
+  const fflTask1Style = React.useRef("");
+  const fflTask2Md = React.useRef("");
+  const fflTask2Style = React.useRef("");
   const openTaskMd = React.useRef("");
   const openTaskStyle = React.useRef("");
   let tasks = taskIds.length === 0 ? [] : generateTasks(taskIds, participantID ?? 'PILOT',
     (md, ffl) => {
-      fflTaskMd.current = md;
-      fflTaskStyle.current = ffl;
+      if (0 <= activeStep - 2 && activeStep - 2 <= 1) {
+        fflTask1Md.current = md;
+        fflTask1Style.current = ffl;
+      }
+      if (2 <= activeStep - 2 && activeStep - 2 <= 3) {
+        fflTask2Md.current = md;
+        fflTask2Style.current = ffl;
+      }
     });
-  tasks.push(...generateTasks([{ formula: 4, tool: "FFL" }], participantID ?? 'PILOT',
+  tasks.push(...generateTasks([{ formula: 5, tool: "FFL" }], participantID ?? 'PILOT',
     (md, ffl) => {
       openTaskMd.current = md;
       openTaskStyle.current = ffl;
@@ -163,8 +171,8 @@ function App() {
         studyEnd.current = Date.now();
         stopCapture(activeCapture.current!, activeRecorder);
         download(
-          URL.createObjectURL(new Blob([getReport()], { type: 'text/plain' })),
-          `${participantID}.csv`
+          URL.createObjectURL(new Blob([getReport()], { type: 'text/json' })),
+          `${participantID}.json`
         );
         setActiveStep(0);
       } else {
@@ -173,16 +181,20 @@ function App() {
       setActiveStepCompleted(false);
     } else {
       activeRecorder.current?.pause();
-      if (2 <= activeStep && activeStep <= 5) {
+      if (2 <= activeStep && activeStep <= 6) {
         taskTimes.current.push(Date.now() - startTime.current);
       }
       setActiveStepCompleted(true);
     }
 
   }
-  const getReport = () =>
-    "Participant ID,Task 1, Task 2, Task 3, Task 4,Total Time,FFL Task Markdown,FFL Task Styling,Open Task Markdown,Open Task Styling\n" +
-    `${participantID},${taskTimes.current.map(s => s.toString()).join(',')},${studyEnd.current - studyStart.current}," ${fflTaskMd.current.replaceAll('"', '\\"')} "," ${fflTaskStyle.current.replaceAll('"', '\\"')} "," ${openTaskMd.current.replaceAll('"', '\\"')} "," ${openTaskStyle.current.replaceAll('"', '\\"')} "`
+  const getReport = () => JSON.stringify({
+    participantID, taskTimes, totalTime: Date.now() - studyStart.current,
+    fflTasks: [
+      { md: fflTask1Md, ffl: fflTask1Style },
+      { md: fflTask2Md, ffl: fflTask2Style }
+    ]
+  })
   return (
     <div className="App">
       <Container maxWidth='lg' sx={{ height: '100vh' }}>

@@ -3,7 +3,7 @@
       "description": "Modify the given formula to as shown below to the best of your ability.",
       "render": {
         "md": "$$\\rho\\cdot\\frac{D\\vec{v}}{Dt}=\\rho\\cdot(\\frac{\\partial\\vec{v}}{\\partial t}+(\\vec{v}\\cdot\\nabla)\\vec{v})$$",
-        "ffl": "$\\rho\\cdot\\frac{D\\vec{v}}{Dt}$ { color: green; label: S; label-marker: extent }\n$\\frac{\\partial\\vec{v}}{\\partial t}$ { color: red; label: L; label-marker: extent }\n$(\\vec{v}\\cdot\\nabla)\\vec{v}$ { color: purple; label: C; label-marker: extent }"
+        "ffl": "$\\rho\\cdot\\frac{D\\vec{v}}{Dt}$ { color: green; label: S; label-marker: extent; label-positon: below }\n$\\frac{\\partial\\vec{v}}{\\partial t}$ { color: red; label: L; label-marker: extent; label-positon: below }\n$(\\vec{v}\\cdot\\nabla)\\vec{v}$ { color: purple; label: C; label-marker: extent; label-positon: below }"
       },
       "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f1a.zip",
       "FFL": {

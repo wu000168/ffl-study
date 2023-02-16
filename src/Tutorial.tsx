@@ -11,8 +11,6 @@ function Tutorial() {
             case 1:
                 window.open(`https://www.overleaf.com/docs?snip_uri=${encodeURI("https://raw.githubusercontent.com/wu000168/ffl-study/site/tutorial.zip")}`, '_blank');
                 break;
-            case 2:
-                download('tutorial.docx', 'tutorial.docx'); break;
         }
     };
 
@@ -21,13 +19,12 @@ function Tutorial() {
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                 <Tab label="Tool X" />
                 <Tab label="Tool Y" />
-                <Tab label="Tool Z" />
             </Tabs>
         </Box>
         <Box sx={{ flex: 1, marginTop: '8pt' }}>
             <FFLTask task="This is where your task will be displayed."
                 md="$$ P^t(q|\Delta, e_t) = P^t_s(q|\Delta, s_t) P^t_c(st|\Delta, e_t) $$"
-                ffl="$P^?_?$ { color: red }" ratio={[1, 3]} />
+                ffl="$P^t_?$ { color: red }" ratio={[1, 3]} />
         </Box>
     </Box>
 }
