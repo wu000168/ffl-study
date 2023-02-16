@@ -98,7 +98,7 @@ function generateTasks(taskIds: { formula: number, tool: "FFL" | "LaTeX" | "Word
 }
 
 function taskCode(fNo: number): string | undefined {
-  return [undefined, "A", "B", "C"][fNo]
+  return [undefined, "1A", "1B", "2A", "2B", "O"][fNo]
 }
 
 function toolCode(tool: string): string | undefined {
