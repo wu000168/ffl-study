@@ -23,8 +23,8 @@ function Tutorial() {
         </Box>
         <Box sx={{ flex: 1, marginTop: '8pt' }}>
             <FFLTask task="This is where your task will be displayed."
-                md="$$ P^t(q|\Delta, e_t) = P^t_s(q|\Delta, s_t) P^t_c(st|\Delta, e_t) $$"
-                ffl="$P^t_?$ { color: red }" ratio={[1, 3]} />
+                md="$$ P^t(q|\Delta, e_t) = P^t_s(q|\Delta, s_t) P^t_c(s_t|\Delta, e_t) $$"
+                ffl="$P^t_?$ { color: red; }" ratio={[1, 3]} />
         </Box>
     </Box>
 }

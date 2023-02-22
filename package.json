@@ -1,5 +1,5 @@
 {
-  "name": "ffl-study",
+  "name": "math-notation-study",
   "version": "0.1.0",
   "private": false,
   "homepage": ".",
@@ -30,7 +30,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/wu000168/ffl-study.git -b site",
+    "deploy": "gh-pages -d build -r https://github.com/wu000168/math-notation-study.git -b site",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

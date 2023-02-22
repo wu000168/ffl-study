@@ -67,14 +67,14 @@ fetch("https://raw.githubusercontent.com/wu000168/ffl-study/site/tasks.json").th
 
 function validateParticipantId(id: string): { formula: number, tool: "FFL" | "LaTeX" | "Word" }[] { return samples[id]; }
 function generateTasks(taskIds: { formula: number, tool: "FFL" | "LaTeX" | "Word" }[],
-  participantID: string, fflOnChange: (md: string, ffl: string) => void) {
+  participantID: string, fflOnChange: (md: string, ffl: string) => void, props?: any) {
   return taskIds.map(({ formula, tool }, idx) => {
     let task = tasks[formula - 1];
     if (task) {
       switch (tool) {
         case "FFL": return (<FFLTask onChange={fflOnChange}
           task={task.description} target={task.render}
-          md={task["FFL"].md} ffl={task["FFL"].ffl} ratio={task["FFL"].ratio} />);
+          md={task["FFL"].md} ffl={task["FFL"].ffl} ratio={task["FFL"].ratio} {...props} />);
         case "LaTeX":
           return <Box sx={{ flex: '1 1 auto', pt: 2 }}>
             <Do onLoad={() => { window.open(`https://www.overleaf.com/docs?snip_uri=${encodeURI(task["LaTeX"])}`, '_blank') }}            >
@@ -98,7 +98,7 @@ function generateTasks(taskIds: { formula: number, tool: "FFL" | "LaTeX" | "Word
 }
 
 function taskCode(fNo: number): string | undefined {
-  return [undefined, "1A", "1B", "2A", "2B", "O"][fNo]
+  return [undefined, "A", "B", "C", "D", "E"][fNo]
 }
 
 function toolCode(tool: string): string | undefined {
@@ -136,7 +136,7 @@ function App() {
     (md, ffl) => {
       openTaskMd.current = md;
       openTaskStyle.current = ffl;
-    }));
+    }, { additionalTaskInfoDialog: (<img alt='inspiration' src='https://pbs.twimg.com/media/Eq6QWtvUUAEBqY5?format=png&name=small'></img>) }));
   let stepComponents: JSX.Element[] = [
     <StudyTask survey={<iframe style={{ border: '0px' }} title="Background Survey" src="https://docs.google.com/forms/d/e/1FAIpQLScwE1jTXDzSnEju_tq91NTkKiy6gY9lG-df2_5S1wkWmV_FSA/viewform?embedded=true" width='100%' height='100%'>Loading…</iframe>}
       completed={activeStepCompleted}>

@@ -1309,41 +1309,6 @@ body,
   background-color: var(--color-prettylights-syntax-markup-deleted-bg);
 }
 
-/* From extension ms-toolsai.jupyter */
-/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
-
-.alert {
-    width: auto;
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-.alert > *:last-child {
-    margin-bottom: 0;
-}
-#preview > .alert:last-child {
-    /* Prevent this being set to zero by the default notebook stylesheet */
-    padding-bottom: 1em;
-}
-
-.alert-success {
-    /* Note there is no suitable color available, so we just copy "info" */
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-info {
-    background-color: var(--theme-info-background);
-    color: var(--theme-info-foreground);
-}
-.alert-warning {
-    background-color: var(--theme-warning-background);
-    color: var(--theme-warning-foreground);
-}
-.alert-danger {
-    background-color: var(--theme-error-background);
-    color: var(--theme-error-foreground);
-}
-
 </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
@@ -1379,6 +1344,11 @@ body,
 <p><code>\textcolor{</code><sc style="font-variant: small-caps;">color</sc><code>}{</code>...<code>}</code><br>
 where <sc style="font-variant: small-caps;">color</sc> can be <code>red</code>/<code>blue</code>/<code>green</code>/<code>orange</code>/<code>purple</code>/<code>violet</code>/<code>magenta</code>/<code>gray</code>/...</p>
 <p>For example, <code>$\textcolor{red}{r}$</code> gives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathcolor="red"><mi>r</mi></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{red}{r}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;color:red;">r</span></span></span></span>.</p>
+<h2 id="annotate-equations-with-lines">Annotate equations with lines</h2>
+<ol>
+<li>select the portion of the formula using <code>\tikzmarknode{</code><sc style="font-variant: small-caps;">node_name_you_define</sc><code>}{</code><sc style="font-variant: small-caps;">LaTeX_segment_you_want</sc><code>}</code></li>
+<li>use <code>\annotate[yshift=3ex]{above}{</code><sc style="font-variant: small-caps;">node_name_you_define</sc><code>}{</code><sc style="font-variant: small-caps;">label_text</sc><code>}</code> to put labels above; use <code>\annotate[yshift=-3ex]{below}{</code><sc style="font-variant: small-caps;">node_name_you_define</sc><code>}{</code><sc style="font-variant: small-caps;">label_text</sc><code>}</code>  to put labels below. You can always customize the amount of yshift.</li>
+</ol>
 <h2 id="over-under-brace">Over-/Under-brace</h2>
 <p><code>\overbrace{</code>...<code>}^{</code><sc style="font-variant: small-caps;">brace-label</sc><code>}</code><br>
 <code>\underbrace{</code>...<code>}_{</code><sc style="font-variant: small-caps;">brace-label</sc><code>}</code></p>
@@ -1401,6 +1371,8 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
 -5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.648em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3341em;"><span></span></span></span></span></span></span></span></span></p>
+<h2 id="addremove-horizontal-space">Add/remove horizontal space</h2>
+<p>Use <code>\hspace{</code><sc style="font-variant: small-caps;">length</sc><code>}</code>. For adding extra space, you can do <code>\hspace{3ex}</code>; for removing extra space, you can do <code>\hspace{-3ex}</code>. You can always customize the length of the space.</p>
 </div>
         </div>
         <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
