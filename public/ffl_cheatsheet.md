@@ -30,6 +30,8 @@ To apply styles to the selected elements you use the following attributes in the
 | `label` | any _<span style="font-variant:small-caps;">string</span>_ terminated by the attribute-dividing `;` |
 | `label-position` | `above`/`below`/`auto` |
 | `label-marker` | `extent`/`line`/`none` |
+| `label-marker-offset-x` | _<span style="font-variant:small-caps;">number</span>_ px |
+| `label-marker-offset-y` | _<span style="font-variant:small-caps;">number</span>_ px |
 
 ## Example
 | FFL | LaTeX | Output |

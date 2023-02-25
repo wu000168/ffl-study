@@ -132,11 +132,13 @@ function App() {
         fflTask2Style.current = ffl;
       }
     });
-  tasks.push(...generateTasks([{ formula: 5, tool: "FFL" }], participantID ?? 'PILOT',
-    (md, ffl) => {
-      openTaskMd.current = md;
-      openTaskStyle.current = ffl;
-    }, { additionalTaskInfoDialog: (<img alt='inspiration' src='https://pbs.twimg.com/media/Eq6QWtvUUAEBqY5?format=png&name=small'></img>) }));
+  tasks.push(<Do onLoad={() => { window.open(`https://wu000168.github.io/ffl-playground-site/`, '_blank') }}>{
+    generateTasks([{ formula: 5, tool: "FFL" }], participantID ?? 'PILOT',
+      (md, ffl) => {
+        openTaskMd.current = md;
+        openTaskStyle.current = ffl;
+      }, { additionalTaskInfoDialog: (<img alt='inspiration' src='https://pbs.twimg.com/media/Eq6QWtvUUAEBqY5?format=png&name=small'></img>) })
+  }</Do>);
   let stepComponents: JSX.Element[] = [
     <StudyTask survey={<iframe style={{ border: '0px' }} title="Background Survey" src="https://docs.google.com/forms/d/e/1FAIpQLScwE1jTXDzSnEju_tq91NTkKiy6gY9lG-df2_5S1wkWmV_FSA/viewform?embedded=true" width='100%' height='100%'>Loading…</iframe>}
       completed={activeStepCompleted}>
@@ -145,7 +147,13 @@ function App() {
       </iframe>
     </StudyTask>,
     <Tutorial></Tutorial>,
-    ...tasks.map(t => <StudyTask survey={<iframe style={{ border: '0px' }} title="Task Difficulty Survey" src="https://docs.google.com/forms/d/e/1FAIpQLSeqv21EgeFMwS44cCVpQL_0N8NgIsM5e9rHcTyoNgCDqULm2g/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>}
+    ...tasks.map((t, idx) => <StudyTask
+      survey={0 <= idx && idx <= 1 ?
+        <iframe style={{ border: '0px' }} title="Task Difficulty Questionnaire" src="https://docs.google.com/forms/d/e/1FAIpQLSeqv21EgeFMwS44cCVpQL_0N8NgIsM5e9rHcTyoNgCDqULm2g/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
+        : 2 <= idx && idx <= 3 ?
+          <iframe style={{ border: '0px' }} title="Task Difficulty Questionnaire" src="https://docs.google.com/forms/d/e/1FAIpQLSfDI8eRXDeTrsq0sBVLPr6umHk1NLKL54G5WbDVc2aW7XWy0A/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
+          : <iframe style={{ border: '0px' }} title="Task Difficulty Questionnaire" src="https://docs.google.com/forms/d/e/1FAIpQLSeF7nw7WIHoCTFbGXEafVcYhnpyxdD_xlkSAbsOE5FtUrJPZw/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>
+      }
       completed={activeStepCompleted}>{t}</StudyTask>),
     <StudyTask survey={<iframe style={{ border: '0px' }} title="Compensation Information" src="https://docs.google.com/forms/d/e/1FAIpQLSdUfBbtg7F0jWAJiJ6Mkyx6xMAMdRWL8gX_05eEEQTZBhMZ6g/viewform?embedded=true" width="100%" height="100%">Loading…</iframe>}
       completed={activeStepCompleted}>
@@ -252,7 +260,7 @@ function App() {
                   </Step>;
                 })}
                 <Step>
-                  <StepLabel optional={<Typography variant="caption">Tool {toolCode("FFL")}</Typography>}>Task D</StepLabel>
+                  <StepLabel optional={<Typography variant="caption">Tool {toolCode("FFL")}</Typography>}>Task {taskCode(5)}</StepLabel>
                 </Step>
                 <Step>
                   <StepLabel>Done</StepLabel>

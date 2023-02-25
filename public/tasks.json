@@ -64,7 +64,7 @@
       }
     },
     {
-      "description": "Enhance the given document with visual augmentations with the tools we have provided, and try your best describe your thought process to your facilitator as you explore.",
+      "description": "Enhance the styling of the given document to make it more understandable. Remember to say your thoughts out loud.",
       "FFL": {
         "md": "Consider a dataset $D = {(x_i ,y_i)}^N$ of $N$ data points, where $x_i = (x_{i1}, x_{i2},\\cdots , x_{iM} )$ is a feature vector with $M$ features, and $y_i$ is the target, i.e., the response, variable. Let $x_j$ denote the $j$th variable in feature space. A typical linear regression model can then be expressed mathematically as:\n$$ y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + · · · + \\beta_N x_N $$\nThis model assumes that the relationships between the target variable $y_i$ and features $x_j$ are linear and can be captured in slope terms $\\beta_1$, $\\beta_2$, . . . , $\\beta_N$.",
         "ffl": "",
