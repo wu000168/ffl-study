@@ -200,7 +200,8 @@ function App() {
     participantID, taskTimes, totalTime: Date.now() - studyStart.current,
     fflTasks: [
       { md: fflTask1Md, ffl: fflTask1Style },
-      { md: fflTask2Md, ffl: fflTask2Style }
+      { md: fflTask2Md, ffl: fflTask2Style },
+      { md: openTaskMd, ffl: openTaskStyle }
     ]
   })
   return (
