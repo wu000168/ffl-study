@@ -51,12 +51,12 @@
     "description": "Modify the given formula to as shown below to the best of your ability.",
     "render": {
       "md": "$$ \\nabla\\cdot\\vec{j}(p) =\\lim_{v\\rightarrow\\{p\\}}\\iint_{S(v)}\\frac{\\vec{j}\\cdot\\vec{n}}{|v|}dS $$",
-      "ffl": "$\\vec{j}$ {\n  label: flux;\n  label-position: below;\n  label-marker-offset-y: -16px;\n}\n$\\lim_*$ {\n  label: around a point;\n  label-position: below;\n  label-marker: extent;\n}\n$S(v)$ {\n  label: enclosing surface;\n  label-position: above;\n  label-marker-offset-y: 36px;\n}\n$v$ { color: red; }\n"
+      "ffl": "$\\vec{j}(p)$ {\n  label: flux;\n  label-position: below;\n  label-marker-offset-y: -16px;\n}\n$\\lim_*$ {\n  label: around a point;\n  label-position: below;\n  label-marker: extent;\n}\n$S(v)$ {\n  label: enclosing surface;\n  label-position: above;\n  label-marker-offset-y: 36px;\n}\n$v$ { color: red; }\n"
     },
     "LaTeX": "https://raw.githubusercontent.com/wu000168/ffl-study/site/f2b.zip",
     "FFL": {
       "md": "$$ \\nabla\\cdot\\vec{j}(p) =\\lim_{v\\rightarrow\\{p\\}}\\iint_{S(v)}\\frac{\\vec{j}\\cdot\\vec{n}}{|v|}dS $$",
-      "ffl": "$\\vec{j}$ {\n  label: flux;\n  label-position: below;\n  label-marker-offset-y: -16px;\n}\n$\\lim_*$ {\n  label: around a point;\n  label-position: above;\n  label-marker-offset-y: 16px;\n}\n$S(v)$ {\n  label: enclosing surface;\n  label-position: below;\n}\n$|v|$ {\n  label: volume;\n  label-position: below;\n}\n$\\vec{n}$ { label: normal; }",
+      "ffl": "$\\vec{j}(p)$ {\n  label: flux;\n  label-position: below;\n  label-marker-offset-y: -16px;\n}\n$\\lim_*$ {\n  label: around a point;\n  label-position: above;\n  label-marker-offset-y: 16px;\n}\n$S(v)$ {\n  label: enclosing surface;\n  label-position: below;\n}\n$|v|$ {\n  label: volume;\n  label-position: below;\n}\n$\\vec{n}$ { label: normal; }",
       "ratio": [
         1,
         3
